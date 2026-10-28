@@ -1,0 +1,43 @@
+.stat-bar {
+  display: grid;
+  grid-template-columns: 150px 40px 1fr;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-bar-label {
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.stat-bar-value {
+  text-align: right;
+}
+
+/* Barra "de vida" de batalha: trilho escuro e preenchimento em blocos */
+.stat-bar-track {
+  height: 18px;
+  padding: 3px;
+  background: var(--ink);
+}
+
+.stat-bar-fill {
+  position: relative;
+  height: 100%;
+  /* animação em degraus: a barra "enche" aos poucos */
+  animation: fill-bar 0.9s steps(14) both;
+}
+
+/* divisórias que formam os blocos da barra */
+.stat-bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to right, transparent 0 8px, rgba(0, 0, 0, 0.3) 8px 10px);
+}
+
+@keyframes fill-bar {
+  from {
+    width: 0;
+  }
+}

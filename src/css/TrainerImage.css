@@ -1,0 +1,19 @@
+/* Os sprites do Showdown já são pixel art, só desligamos a suavização ao ampliar */
+.trainer-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.trainer-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-pixel);
+  font-size: 2rem;
+  color: var(--muted);
+}

@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* ============================================================
+   Tema base: Pokédex clássica em pixel art.
+   Os temas "dark" e "gameboy" só trocam as variáveis abaixo.
+   ============================================================ */
+:root {
+  --font-pixel: 'Press Start 2P', 'Courier New', monospace;
+  --font-body: 'VT323', 'Courier New', monospace;
+
+  --red: #dc0a2d;
+  --red-dark: #9e0820;
+  --blue: #3b5ca8;
+  --yellow: #ffcb05;
+  --green: #2e9e4f;
+  --on-accent: #ffffff;
+
+  --bg: #dfe4f1;
+  --chk: #d2d8ea;
+  --surface: #ffffff;
+  --surface-2: #eceff9;
+  --text: #1f2233;
+  --muted: #566082;
+  --ink: #1f2233;
+  --soft-border: #bcc3de;
+
+  --bevel-light: rgba(255, 255, 255, 0.6);
+  --bevel-dark: rgba(0, 0, 0, 0.16);
+  --drop-color: rgba(0, 0, 0, 0.22);
+
+  --cap: #f2f4fb;
+  --screen: #14204a;
+  --screen-line: #3b5ca8;
+
+  --lens-1: #b4f0ff;
+  --lens-2: #2c8fe0;
+  --lens-3: #144f9c;
+  --led-red: #ff6b6b;
+  --led-yellow: #ffcb05;
+  --led-green: #5bd96b;
+
+  /* Borda "pixelada": 4 sombras sólidas formam um retângulo com cantos cortados */
+  --frame: 0 -4px 0 0 var(--ink), 0 4px 0 0 var(--ink), -4px 0 0 0 var(--ink), 4px 0 0 0 var(--ink);
+  --bevel: inset -4px -4px 0 0 var(--bevel-dark), inset 4px 4px 0 0 var(--bevel-light);
+  --drop: 8px 8px 0 0 var(--drop-color);
+
+  /* Setinhas em pixel art (usadas com clip-path em elementos vazios) */
+  --arrow-right: polygon(0 0, 34% 0, 34% 20%, 67% 20%, 67% 40%, 100% 40%, 100% 60%, 67% 60%, 67% 80%, 34% 80%, 34% 100%, 0 100%);
+  --arrow-down: polygon(0 0, 100% 0, 100% 34%, 80% 34%, 80% 67%, 60% 67%, 60% 100%, 40% 100%, 40% 67%, 20% 67%, 20% 34%, 0 34%);
+  --arrow-up: polygon(40% 0, 60% 0, 60% 33%, 80% 33%, 80% 66%, 100% 66%, 100% 100%, 0 100%, 0 66%, 20% 66%, 20% 33%, 40% 33%);
+
+  /* Círculo feito de "degraus", para parecer pixel art */
+  --pixel-circle: polygon(
+    25% 0, 75% 0, 75% 12.5%, 87.5% 12.5%, 87.5% 25%, 100% 25%, 100% 75%, 87.5% 75%,
+    87.5% 87.5%, 75% 87.5%, 75% 100%, 25% 100%, 25% 87.5%, 12.5% 87.5%, 12.5% 75%,
+    0 75%, 0 25%, 12.5% 25%, 12.5% 12.5%, 25% 12.5%
+  );
+
+  --type-normal: #a8a77a;
+  --type-fire: #ee8130;
+  --type-water: #6390f0;
+  --type-grass: #7ac74c;
+  --type-electric: #f7d02c;
+  --type-ice: #96d9d6;
+  --type-fighting: #c22e28;
+  --type-poison: #a33ea1;
+  --type-ground: #e2bf65;
+  --type-flying: #a98ff3;
+  --type-psychic: #f95587;
+  --type-bug: #a6b91a;
+  --type-rock: #b6a136;
+  --type-ghost: #735797;
+  --type-dark: #705746;
+  --type-dragon: #6f35fc;
+  --type-steel: #b7b7ce;
+  --type-typeless: #9aa0a6;
+}
+
+:root[data-theme='dark'] {
+  --bg: #12152b;
+  --chk: #171b36;
+  --surface: #232846;
+  --surface-2: #2e3459;
+  --text: #f1f3fb;
+  --muted: #a8afce;
+  --ink: #05060e;
+  --soft-border: #3d4575;
+  --cap: #2e3459;
+  --screen: #070a1c;
+  --screen-line: #3d4575;
+  --bevel-light: rgba(255, 255, 255, 0.12);
+  --bevel-dark: rgba(0, 0, 0, 0.3);
+  --drop-color: rgba(0, 0, 0, 0.45);
+}
+
+/* Game Boy: só 4 tons de verde, igual ao console original */
+:root[data-theme='gameboy'] {
+  --red: #306230;
+  --red-dark: #0f380f;
+  --blue: #0f380f;
+  --yellow: #9bbc0f;
+  --green: #306230;
+  --on-accent: #9bbc0f;
+
+  --bg: #8bac0f;
+  --chk: #82a30d;
+  --surface: #9bbc0f;
+  --surface-2: #8bac0f;
+  --text: #0f380f;
+  --muted: #306230;
+  --ink: #0f380f;
+  --soft-border: #306230;
+
+  --cap: #9bbc0f;
+  --screen: #0f380f;
+  --screen-line: #306230;
+  --bevel-light: rgba(155, 188, 15, 0.7);
+  --bevel-dark: rgba(15, 56, 15, 0.2);
+  --drop-color: rgba(15, 56, 15, 0.35);
+
+  --lens-1: #9bbc0f;
+  --lens-2: #8bac0f;
+  --lens-3: #306230;
+  --led-red: #9bbc0f;
+  --led-yellow: #8bac0f;
+  --led-green: #306230;
+
+  --type-normal: #306230;
+  --type-fire: #0f380f;
+  --type-water: #306230;
+  --type-grass: #0f380f;
+  --type-electric: #306230;
+  --type-ice: #0f380f;
+  --type-fighting: #306230;
+  --type-poison: #0f380f;
+  --type-ground: #306230;
+  --type-flying: #0f380f;
+  --type-psychic: #306230;
+  --type-bug: #0f380f;
+  --type-rock: #306230;
+  --type-ghost: #0f380f;
+  --type-dark: #306230;
+  --type-dragon: #0f380f;
+  --type-steel: #306230;
+  --type-typeless: #306230;
+}
+
+/* Sprites ficam esverdeados no tema Game Boy */
+:root[data-theme='gameboy'] .pokemon-image,
+:root[data-theme='gameboy'] .trainer-image {
+  filter: grayscale(1) sepia(1) hue-rotate(38deg) saturate(1.6) contrast(1.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: none;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  line-height: 1.15;
+  color: var(--text);
+  background-color: var(--bg);
+  /* tabuleiro xadrez que desliza devagar no fundo */
+  background-image: linear-gradient(45deg, var(--chk) 25%, transparent 25%, transparent 75%, var(--chk) 75%),
+    linear-gradient(45deg, var(--chk) 25%, transparent 25%, transparent 75%, var(--chk) 75%);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+  animation: bg-scroll 8s steps(16) infinite;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@keyframes bg-scroll {
+  to {
+    background-position: 32px 32px, 48px 48px;
+  }
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Efeito de tela CRT (liga no botão 📺 do cabeçalho) */
+:root[data-crt='on'] body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0 2px, transparent 2px 4px),
+    radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.35) 100%);
+  animation: crt-flicker 0.15s infinite;
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none;
+    transition: none;
+  }
+}

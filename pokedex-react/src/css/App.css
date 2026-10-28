@@ -1,0 +1,56 @@
+.app {
+  min-height: 100vh;
+  padding-bottom: 7rem;
+}
+
+.app-main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.results-count {
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.section-title {
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-shadow: 4px 4px 0 var(--soft-border);
+}
+
+/* Botão de ação reutilizado em vários componentes */
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 1rem;
+  background: var(--surface);
+  border: none;
+  font-size: 1.3rem;
+  box-shadow: var(--frame), var(--bevel), 0 8px 0 0 var(--ink);
+  transform: translateY(-4px);
+  transition: transform 0.08s steps(2), box-shadow 0.08s steps(2);
+}
+
+.action-button:hover {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.action-button:active {
+  transform: translateY(0);
+  box-shadow: var(--frame), var(--bevel), 0 4px 0 0 var(--ink);
+}
+
+.action-button.active {
+  background: var(--red);
+  color: var(--on-accent);
+}

@@ -1,0 +1,14 @@
+/* image-rendering: pixelated mantém os pixels nítidos ao ampliar o sprite */
+.pokemon-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.pokemon-image-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+}

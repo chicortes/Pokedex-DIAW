@@ -1,9 +1,0 @@
-.pixel-icon {
-  display: block;
-  flex-shrink: 0;
-}
-
-/* No tema Game Boy os ícones também ficam verdes */
-:root[data-theme='gameboy'] .pixel-icon {
-  filter: grayscale(1) sepia(1) hue-rotate(38deg) saturate(1.6) contrast(1.1);
-}

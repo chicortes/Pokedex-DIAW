@@ -7,6 +7,7 @@ Dupla : Bernardo Ramos Ferreira e Francisco de Castro Côrtes Netto
 ## ▶️ Como executar
 
 ```bash
+cd pokedex-react
 npm install
 npm run dev
 ```
